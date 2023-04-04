@@ -11,3 +11,12 @@ git remote add origin https://...
 Este paso se ejecuta una sola vez y luego tengo que usar el comando:
 git push -u origin master 
 Para pasar toda la info de mi local por el tubo hasta mi repo de github. 
+
+-----
+Para generar un github pages (url de github que nos permite ver como va quedando el front de nuestro proyecto) necesitamos:
+-tener código en nuestro repo (tener un push)
+-nos dirigimos a setting
+-Dentro de setting, tocamos sobre "pages" en el sidebar
+-dentro de "pages" tocamos sobre el desplegable que dice "none" y lo modificamos por el "master"
+-Instantaneamente tocamos sobre el botón "save"
+Luego de esto, debemos esperar hasta que se nos genere automaticamente el link con una extensión .io
