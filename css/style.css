@@ -1,0 +1,120 @@
+/* GENERAL */
+ul{list-style-type: none;display:flex;}
+form{display:flex;flex-direction: column;}
+li{padding:10px;}
+a{text-decoration: none;color:tomato;transition:1s all;}
+/* PSEUDOCLASES SON PALABRAS CLAVE RESERVADAS QUE SE PUEDEN AGREGAR A LA SELECTORA (ETIQUETA O CLASE) */
+/* LA PSEUDO :hover nos permite agregar una estética sobre el elemento seleccionado cuando el usuario pase el cursor por encima del elemento */
+a:hover{
+    color:chartreuse;
+    font-size:20px;
+    background-color:blueviolet;
+    padding:10px;
+    border-radius: 20px;
+} 
+/* LA PSEUDO :active nos permite modificar la estética de una etiqueta a cuando mantenemos apretaedo haciendo click sobre el elemento */
+/* a:active{
+    color:red;
+    background-color: green;
+} */
+/* LA PSEUDO :visited nos permite modificar el estilo de los links que ya fueron usados */
+/* a:visited{
+    color:black;
+} */
+
+/* INPUT */
+/* PSEUDO :focus nos permite modificar la estética del input al momento de que el usuario hace click para escribir sobre el elemento */
+
+input:focus{
+    height: 100px;
+    font-size:30px;
+    background-color:turquoise;
+    color:white;
+}
+
+/* PSEUDO PARA SELECCIONAR ENTRE ITEMS HIJOS IGUALES: Ponemos entre parentesis el valor a seleccionar (3, 2n, even, odd) */
+
+/* main div:nth-child(3n){background-color:yellow;} */
+
+/* VARIABLES */
+/* Las variables son palabras claves que voy a crear con una sintaxis predeterminada y me va a permitir guardar un valor en esta palabra. Las variables se usan como VALOR de una propiedad CSS. */
+/* DECLARAR Y DEFINIR */
+:root{
+    /* --nombreVariable:valorVariable; */
+    --bg-principal:lightgrey;
+    --f-s-p-desktop:30px;
+}
+/* APLICAR LA VARIABLE CREADA PREVIAMENTE */
+/* Para aplicar la variable en un valor de propiedad tengo que usar la funcion var(--nombreVariable) */
+header{background-color:var(--bg-principal)}
+
+/* BEM */
+/* BLOQUE */
+body{margin:0;}
+.pie{
+    background-color:var(--bg-principal);
+    display:flex;
+    justify-content: space-between;
+}
+
+/* ELEMENTO */
+.encabezado__nav{font-size:20px;}
+.contenido__img{grid-area:img;}
+.contenido__titulo{grid-area:titulo;}
+.contenido__pIzq{grid-area:txtI;}
+.contenido__imgTxt{grid-area:imgP;}
+.contenido__pDer{grid-area:txtD;}
+/* MODIFICADOR */
+.encabezado__nav--uppercase{text-transform: uppercase;}
+.contenido__img--fluid{width:100%;height: auto;}
+.contenido__titulo--centrado{text-align:center;}
+/* GENERAL */
+.grid{
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows:repeat(3,auto);
+}
+
+/* MEDIA QUERIES */
+/* DESKTOP */
+@media (min-width:1024px){
+    .encabezado{
+        background-color:var(--bg-principal);
+        padding:10px;
+        margin-bottom:10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .contenido{
+        display:grid;
+        grid-template-areas:
+        "img img img"
+        "titulo titulo titulo"
+        "txtI imgP txtD";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-column-gap: 20px;
+    }
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .encabezado, .pie{
+        background-color:var(--bg-principal);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .encabezado__nav{
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-left:0;
+    }
+    .contenido{
+        display:flex;
+        flex-direction: column;
+    }
+    p{font-size:24px;}
+}
